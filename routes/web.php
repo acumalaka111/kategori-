@@ -41,6 +41,11 @@ Route::get('/kategori/{slug}', [HomepageController::class, 'kategori.index']);
 Route::get('/produk/{slug}', [HomepageController::class, 'produkdetail']);
 
 //Route grup kategori
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/admin', 'DashboardController@index');
+});
+
+//Route grup kategori
 Route::group(['prefix' => 'mahasiswa'], function () {
     Route::get('/mahasiswa', 'DashboardController@index');
     Route::get('pendaftaran', function () {
